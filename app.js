@@ -4,17 +4,18 @@ Module is a file of a particular functionaility like data.js
 Advantages of Modules - 
   - Avoid Global Namespace Collision 
   - Easy to Navigate because of less code
-
-Default Export - wile importing it can be any name like
-
-import whatEverName from "./utils/showPeople.js";
 */
 
 import { random, people } from "./utils/data.js";
 import showPeople from "./utils/showPeople.js";
+import getElement from "./utils/getElement.js";
 
-const container = document.querySelector(".container");
-const btn = document.querySelector(".btn");
+const container = getElement(".container");
+const btn = getElement(".btn");
+
+/* Trying to access wrong class or one that doesn't exist */
+// const containerOne = getElement(".containerOne");
+// console.log(containerOne);
 
 btn.addEventListener("click", () => {
   container.innerHTML = showPeople(people);
